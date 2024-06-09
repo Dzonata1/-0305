@@ -59,3 +59,39 @@ public:
         std::cout << "Лифт находится на этаже " << currentFloor << "." << std::endl;
     }
 };
+
+тестирование класса
+
+#include <iostream>
+#include "Elevator.h"
+
+int main() {
+   
+    Elevator elevator(1, 10);
+
+    
+    elevator.turnOn();
+    std::cout << "Состояние лифта: " << (elevator.getState() ? "Работает" : "Не работает") << std::endl;
+
+    
+    elevator.call(5);
+    std::cout << "Текущий этаж: " << elevator.getCurrentFloor() << std::endl;
+
+    
+    elevator.call(11);
+
+    
+    elevator.turnOff();
+    std::cout << "Состояние лифта: " << (elevator.getState() ? "Работает" : "Не работает") << std::endl;
+
+    
+    elevator.call(3);
+
+    
+    elevator.setRange(0, 15);
+    elevator.turnOn();
+    elevator.call(14);
+    std::cout << "Текущий этаж: " << elevator.getCurrentFloor() << std::endl;
+
+    return 0;
+}
