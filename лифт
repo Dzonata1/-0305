@@ -1,0 +1,61 @@
+#include <iostream>
+
+class Elevator {
+private:
+    int currentFloor; // текущий этаж
+    int minFloor; // нижний этаж
+    int maxFloor; // верхний этаж
+    bool isOn; // состояние лифта (работает / не работает)
+
+public:
+    
+    Elevator(int minFloor, int maxFloor)
+        : minFloor(minFloor), maxFloor(maxFloor), currentFloor(minFloor), isOn(false) {}
+
+    
+    void setRange(int minFloor, int maxFloor) {
+        this->minFloor = minFloor;
+        this->maxFloor = maxFloor;
+       
+        if (currentFloor < minFloor || currentFloor > maxFloor) {
+            currentFloor = minFloor;
+        }
+    }
+
+   
+    void turnOn() {
+        isOn = true;
+        std::cout << "Лифт включен." << std::endl;
+    }
+
+   
+    void turnOff() {
+        isOn = false;
+        std::cout << "Лифт выключен." << std::endl;
+    }
+
+    
+    bool getState() const {
+        return isOn;
+    }
+
+    
+    int getCurrentFloor() const {
+        return currentFloor;
+    }
+
+    
+    void call(int floor) {
+        if (!isOn) {
+            std::cout << "Лифт не работает." << std::endl;
+            return;
+        }
+        if (floor < minFloor || floor > maxFloor) {
+            std::cout << "Этаж вне диапазона." << std::endl;
+            return;
+        }
+        std::cout << "Лифт движется на этаж " << floor << "." << std::endl;
+        currentFloor = floor;
+        std::cout << "Лифт находится на этаже " << currentFloor << "." << std::endl;
+    }
+};
