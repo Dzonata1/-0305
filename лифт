@@ -60,7 +60,7 @@ public:
     }
 };
 
-тестирование класса
+// тестирование класса
 
 #include <iostream>
 #include "Elevator.h"
