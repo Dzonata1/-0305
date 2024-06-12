@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+
+class Animal {
+private:
+    std::string name;
+    std::string sound;
+
+public:
+    
+    Animal(const std::string &name, const std::string &sound) : name(name), sound(sound) {}
+
+    
+    void show_name() const {
+So nclude <iostream>
+#include <string>
+
+class Animal {
+private:
+    std::string name;
+    std::string sound;
+
+public:
+    
+    Animal(const std::string &name, const std::string &sound) : name(name), sound(sound) {}
+
+    
+    void show_name() const {
+        std::cout << "Animal name: " << name << std::endl;
+    }
+
+   
+    void make_sound() const {
+        std::cout << name << " says: " << sound << std::endl;
+    }
+
+    
+    void set_name(const std::string &new_name) {
+        name = new_name;
+    }
+
+    
+    void set_sound(const std::string &new_sound) {
+        sound = new_sound;
+    }
+
+   
+    std::string get_name() const {
+        return name;
+    }
+
+    
+    std::string get_sound() const {
+        return sound;
+    }
+};
+
+int main() {
+    
+    Animal cat("Kitty", "Meow");
+
+   
+    cat.show_name();        
+    cat.make_sound();       
+
+    
+    cat.set_name("Tom");
+    cat.set_sound("Purr");
+
+   
+    cat.show_name();        
+    cat.make_sound();      
+
+    return 0;
+}
