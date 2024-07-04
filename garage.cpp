@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 #include<string>
-// класс машин
+// РєР»Р°СЃСЃ РјР°С€РёРЅ
 class Car {
 public:
 	std::string color;
@@ -11,7 +11,7 @@ public:
 		color (color),
 		model(model){}
 };
-// класс гараж
+// РєР»Р°СЃСЃ РіР°СЂР°Р¶
 class Garage {
 public:
 	int number;
@@ -21,7 +21,7 @@ public:
 	Garage(int number):
 		number(number),
 		carCount(0){}
-// добавляем машину в гараж
+// РґРѕР±Р°РІР»СЏРµРј РјР°С€РёРЅСѓ РІ РіР°СЂР°Р¶
 	bool addCar(const Car& car) {
 		if (carCount < 5) {
 			cars[carCount] = car;
@@ -33,10 +33,10 @@ public:
 			return false;
 		}
 	}
-	// удаляем машину
+	// СѓРґР°Р»СЏРµРј РјР°С€РёРЅСѓ
 	bool removeCar(int index) {
 		if (index >= 0 && index < carCount) {
-			Car buf;// создаем буфер
+			Car buf;// СЃРѕР·РґР°РµРј Р±СѓС„РµСЂ
 			for (int i = index; i < carCount - 1;i++) {
 				buf = cars[i];
 				cars[i] = cars[i + 1];
@@ -49,26 +49,26 @@ public:
 	}
 };
 
-// описываем машины
+// РѕРїРёСЃС‹РІР°РµРј РјР°С€РёРЅС‹
 int main() {
 	Garage garage(1);
 	Car car1("black", "kia");
 	Car car2("green", "mazda");
 	Car car3("red", "nissan");
-	// добавляем машины в гараж
+	// РґРѕР±Р°РІР»СЏРµРј РјР°С€РёРЅС‹ РІ РіР°СЂР°Р¶
 	garage.addCar(car1);
 	garage.addCar(car2);
 	garage.addCar(car3);
 	
 	cout << "cars in the garage" << endl;
-	// проверяем  все машины в гараже
+	// РїСЂРѕРІРµСЂСЏРµРј  РІСЃРµ РјР°С€РёРЅС‹ РІ РіР°СЂР°Р¶Рµ
 	for (int i = 0; i < garage.carCount; i++) {
 		cout << "color " << garage.cars[i].color << "model " << endl;
 
 	}
 	garage.removeCar(1);
 	cout << "cars in the garage afrer removing car at index 1;" << endl;
-	// проверяем все оставшиеся машины
+	// РїСЂРѕРІРµСЂСЏРµРј РІСЃРµ РѕСЃС‚Р°РІС€РёРµСЃСЏ РјР°С€РёРЅС‹
 	for (int i = 0; i < garage.carCount; i++) {
 		cout << "color " << garage.cars[i].color << "model " << garage.cars[i].model << endl;
 	}
